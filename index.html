@@ -1,159 +1,137 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-<title>Название страницы</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Интернет-магазин</title>
+   
+</head>
+<body>
+    <header>
+        <h1>Мой Интернет-магазин</h1>
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#">Каталог</a>
+            <a href="#">Контакты</a>
+        </nav>
+        <div id="cart">
+            <button id="cart-btn">Корзина (0)</button>
+        </div>
+    </header>
+    <style>/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-/* Стиль для body */
-body {
-    font-family: Arial;
-    margin: 0;
-}
-
-/* Заголовок/Логотип */
-.header {
-    padding: 80px;
-    text-align: center;
-    background: #1abc9c;
-    color: white;
-}
-
-/* Увеличение размера шрифта заголовка */
-.header h1 {
-    font-size: 40px;
-}
-
-/* Стиль для верхней навигационной панели */
-.navbar {
-    overflow: hidden;
+header {
     background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
-/* Стиль для ссылок в навигационной панели */
-.navbar a {
-    float: left;
-    display: block;
+header nav a {
     color: white;
-    text-align: center;
-    padding: 14px 20px;
+    margin: 0 10px;
     text-decoration: none;
 }
 
-/* Ссылка справа */
-.navbar a.right {
-    float: right;
+header nav a:hover {
+    text-decoration: underline;
 }
 
-/* Изменение цвета при наведении */
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Контейнер для колонок */
-.row {  
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-}
-
-/* Создание двух неравных колонок, которые располагаются рядом */
-/* Левая колонка (боковая панель) */
-.side {
-    -ms-flex: 30%; /* IE10 */
-    flex: 30%;
-    background-color: #f1f1f1;
+main {
     padding: 20px;
 }
 
-/* Основная колонка */
-.main {   
-    -ms-flex: 70%; /* IE10 */
-    flex: 70%;
-    background-color: white;
-    padding: 20px;
+#products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
 
-/* Фальшивое изображение, только для примера */
-.fakeimg {
-    background-color: #aaa;
-    width: 100%;
-    padding: 20px;
-}
-
-/* Подвал */
-.footer {
-    padding: 20px;
+.product {
+    border: 1px solid #ddd;
+    padding: 10px;
     text-align: center;
-    background: #ddd;
 }
 
-/* Адаптивная верстка - когда экран меньше 700px, колонки становятся одна над другой */
-@media screen and (max-width: 700px) {
-    .row {   
-        flex-direction: column;
-    }
+.product img {
+    max-width: 100%;
+    height: auto;
 }
 
-/* Адаптивная верстка - когда экран меньше 400px, ссылки навигации становятся одна под другой */
-@media screen and (max-width: 400px) {
-    .navbar a {
-        float: none;
-        width: 100%;
-    }
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-</style>
-</head>
-<body>
 
-<div class="header">
-  <h1>Мой сайт</h1>
-  <p>Сайт, созданный мной.</p>
-</div>
+button:hover {
+    background-color: #0056b3;
+}
 
-<div class="navbar">
-  <a href="#">Ссылка</a>
-  <a href="#">Ссылка</a>
-  <a href="#">Ссылка</a>
-  <a href="#" class="right">Ссылка</a>
-</div>
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}</style>
+    <main>
+        <section id="products">
+            <!-- Товары -->
+            <div class="product">
+                <img src="77_6413.jpeg" alt="Товар 1">
+                <h3>Lenovo IdeaPad</h3>
+                <p>Цена: 40,000 ₽</p>
+                <button onclick="addToCart(1)">Добавить в корзину</button>
+            </div>
+            <div class="product">
+                <img src="1_7338.jpeg" alt="Товар 2">
+                <h3>ASUS VivoBook</h3>
+                <p>Цена: 35,000 ₽</p>
+                <button onclick="addToCart(2)">Добавить в корзину</button>
+            </div>
+            <div class="product">
+                <img src="1_4771_6308.jpeg" alt="Товар 3">
+                <h3>Lenovo ThinkPad</h3>
+                <p>Цена: 45,000 ₽</p>
+                <button onclick="addToCart(3)">Добавить в корзину</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Мой Интернет-магазин</p>
+    </footer>
+   <script>// script.js
 
-<div class="row">
-  <div class="side">
-      <h2>Обо мне</h2>
-      <h5>Фото меня:</h5>
-      <div class="fakeimg" style="height:200px;">Изображение</div>
-      <p>Некоторый текст обо мне, culpa qui officia deserunt mollit anim..</p>
-      <h3>Дополнительный текст</h3>
-      <p>Lorem ipsum dolor sit ame.</p>
-      <div class="fakeimg" style="height:60px;">Изображение</div><br>
-      <div class="fakeimg" style="height:60px;">Изображение</div><br>
-      <div class="fakeimg" style="height:60px;">Изображение</div>
-  </div>
-  <div class="main">
-      <h2>ЗАГОЛОВОК</h2>
-      <h5>Описание заголовка, 7 декабря 2017</h5>
-      <div class="fakeimg" style="height:200px;">Изображение</div>
-      <p>Некоторый текст..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
-      <h2>ЗАГОЛОВОК</h2>
-      <h5>Описание заголовка, 2 сентября 2017</h5>
-      <div class="fakeimg" style="height:200px;">Изображение</div>
-      <p>Некоторый текст..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-  </div>
-</div>
+// Обновленный массив товаров
+const products = [
+    { id: 1, name: "Lenovo IdeaPad", price: 40000, image: "77_6413.jpeg" },
+    { id: 2, name: "ASUS VivoBook", price: 35000, image: "1_4771_6308.jpeg" },
+    { id: 3, name: "Lenovo ThinkPad", price: 45000, image: "1_7338.jpeg" },
+];
 
-<div class="footer">
-  <h2>Подвал</h2>
-</div>
+let cart = [];
 
+// Функция добавления товара в корзину
+function addToCart(id) {
+    const product = products.find(p => p.id === id);
+    cart.push(product);
+    updateCartCount();
+}
+
+// Функция обновления количества товаров в корзине
+function updateCartCount() {
+    const cartBtn = document.getElementById('cart-btn');
+    cartBtn.textContent = Корзина (${cart.length});
+}</script>
 </body>
 </html>
